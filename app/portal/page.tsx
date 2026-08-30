@@ -26,7 +26,8 @@ export default function PortalPage() {
           <label htmlFor="password">Password</label>
           <input id="password" type="password" placeholder="••••••••••••" autoComplete="current-password" />
           <button className="button button-dark" type="button">Sign in</button>
-          <p className="portal-note">This screen is the live-site portal entry point. Authentication, organisation tenancy, MFA and clinical-data permissions are implemented in the secured application layer, not the public website.</p>
+          <a className="button button-primary" href="/portal/workspace" style={{marginTop: 10}}>Open demo workspace</a>
+          <p className="portal-note">Demo access contains synthetic employer and employee data only. Production authentication, organisation tenancy, MFA and clinical-data permissions will live in the secured application layer.</p>
           <a href="/" style={{marginTop: 12, fontSize: 13, fontWeight: 700}}>← Back to WorkWell</a>
         </div>
       </section>
