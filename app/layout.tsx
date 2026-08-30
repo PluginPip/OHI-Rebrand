@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import './live.css';
-import './clinical.css';
+import './theme.css';
+import ThemeSwitcher from './components/ThemeSwitcher';
 
 export const metadata: Metadata = {
   title: 'WorkWell | Occupational Health, Wherever Work Happens',
@@ -11,8 +12,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html lang="en" data-theme="workwell">
+      <body>
+        {children}
+        <ThemeSwitcher />
+      </body>
     </html>
   );
 }
