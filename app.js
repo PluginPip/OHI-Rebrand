@@ -1,21 +1,36 @@
 const http = require('http');
+const { parse } = require('url');
 const next = require('next');
 
-const dev = process.env.NODE_ENV !== 'production';
-const port = process.env.PORT || 3000;
+const dev = false;
+const hostname = '127.0.0.1';
 
-const app = next({ dev });
+const app = next({
+  dev,
+  hostname,
+  dir: __dirname,
+});
+
 const handle = app.getRequestHandler();
 
 app.prepare()
   .then(() => {
-    const server = http.createServer((req, res) => handle(req, res));
+    const server = http.createServer(async (req, res) => {
+      try {
+        const parsedUrl = parse(req.url, true);
+        await handle(req, res, parsedUrl);
+      } catch (error) {
+        console.error('WorkWell request error:', error);
+        res.statusCode = 500;
+        res.end('Internal server error');
+      }
+    });
 
-    server.listen(port, () => {
-      console.log(`WorkWell staging ready on ${process.env.PORT ? 'Passenger' : 'standalone'} listener ${port}`);
+    server.listen('passenger', () => {
+      console.log('WorkWell started under Plesk Passenger');
     });
   })
   .catch((error) => {
-    console.error('Failed to start WorkWell staging:', error);
+    console.error('WorkWell startup error:', error);
     process.exit(1);
   });
