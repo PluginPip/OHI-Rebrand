@@ -1,42 +1,51 @@
 const services = [
-  ['◉','Health surveillance','Audiometry, lung function, HAVS, skin, vision and bespoke programmes.'],
-  ['↗','Management referrals','Structured referrals with employer questions, appointment allocation and report tracking.'],
-  ['✚','Safety-critical medicals','Fitness-for-role assessments for safety-sensitive occupations.'],
-  ['▰','Mobile screening','Workplace delivery that reduces employee travel and operational downtime.'],
+  ['🩺','Health surveillance','Risk-led health surveillance programmes for workplace exposure risks.','£55'],
+  ['👩‍⚕️','Management referral','Occupational-health advice for absence, capability and workplace adjustments.','£195'],
+  ['🦺','Safety-critical medicals','Role-appropriate medical assessment for safety-critical workers.','£125'],
+  ['🧪','Drug & alcohol testing','Workplace testing programmes and policy-aligned delivery.','£85'],
+  ['📋','Pre-placement health','Proportionate pre-placement screening based on role requirements.','£49'],
+  ['💉','Workplace vaccinations','Employer vaccination programmes and suitable workplace delivery.','£65'],
 ];
 
-const products = [
-  ['Management referral','£225','Evidence-based occupational health advice for an employee case.'],
-  ['Safety-critical medical','From £95','Fitness-for-role assessment for safety-sensitive work.'],
-  ['Drug & alcohol testing','From £65','Workplace testing with chain-of-custody options where required.'],
+const fleet = [
+  ['https://images.weserv.nl/?url=www.ohihealthessentials.co.uk/images/Gallery/9.jpg&output=webp&q=88','OHI large two-person mobile unit'],
+  ['https://images.weserv.nl/?url=www.ohihealthessentials.co.uk/images/Gallery/16.jpg&output=webp&q=88','OHI smaller one-person unit'],
+  ['https://images.weserv.nl/?url=www.ohihealthessentials.co.uk/images/Gallery/17.jpg&output=webp&q=88','OHI mobile screening unit'],
+  ['https://images.weserv.nl/?url=www.ohihealthessentials.co.uk/images/Gallery/3.jpg&output=webp&q=88','Mobile clinical interior'],
+  ['https://images.weserv.nl/?url=www.ohihealthessentials.co.uk/images/Gallery/4.jpg&output=webp&q=88','On-site screening space'],
 ];
 
-export default function Home() {
-  return (
-    <main className="prod-demo">
-      <div className="pd-topbar"><span>UK-wide occupational health delivery</span><span>01253 366156 · Blackpool</span></div>
-      <header className="pd-nav"><div className="pd-navin">
-        <a className="pd-logo" href="/"><span className="pd-mark">W</span><span><b>WorkWell by OHI</b><small>Occupational health, rebuilt around work</small></span></a>
-        <nav className="pd-navlinks"><a href="#services">Services</a><a href="#direct">WorkWell Direct</a><a href="#mobile">Mobile units</a><a href="#portalpreview">Employers</a><a href="/industries">Sectors</a></nav>
-        <div className="pd-actions"><a className="pd-btn soft" href="/portal">Portal</a><a className="pd-btn primary" href="#direct">Tell us what you need</a></div>
-      </div></header>
+export default function Home(){
+  return <main className="end-demo">
+    <a className="ed-skip" href="#main">Skip to main content</a>
+    <div className="ed-topbar"><span>UK-wide occupational health delivery</span><span>01253 366156 · Blackpool</span></div>
+    <header className="ed-header"><div className="ed-nav">
+      <a className="ed-brand" href="/"><span className="ed-mark">W</span><span><b>WorkWell by OHI</b><small>Occupational health, rebuilt around work</small></span></a>
+      <nav className="ed-navlinks" aria-label="Main navigation"><a href="/services">Services</a><a href="/industries">Sectors</a><a href="#real-ohi-fleet">Mobile units</a><a href="/employers">Employers</a><a href="#employees">Employees</a><a href="#resources">Resources</a><a href="#about">About</a></nav>
+      <div className="ed-actions"><a className="ed-btn soft" href="/portal">Portal</a><a className="ed-btn primary" href="/contact">Tell us what you need</a></div>
+    </div></header>
 
-      <section className="pd-hero" id="home">
-        <div><div className="pd-eyebrow">A new standard in workplace health</div><h1>Healthier people.<br/>Stronger workplaces.</h1><p>Preventative occupational health, health surveillance and workplace medicals with digital buying, structured referrals, mobile delivery and a secure employer portal.</p><div className="pd-heroCtas"><a className="pd-btn primary" href="#direct">Buy a service</a><a className="pd-btn soft" href="#mobile">Plan mobile delivery</a><a className="pd-btn soft" href="#direct">What do I need?</a></div></div>
-        <div className="pd-visual"><div className="pd-eyebrow light">WORKWELL LIVE OPERATIONS</div><div className="pd-visual-title">Your workforce health, in one view.</div><div className="pd-visualCard"><b>ABC Engineering Ltd</b><div className="pd-metricgrid"><div className="pd-metric"><b>84</b><span>due this month</span></div><div className="pd-metric"><b>12</b><span>appointments booked</span></div><div className="pd-metric"><b>3</b><span>actions to review</span></div></div></div></div>
-      </section>
+    <div id="main">
+      <section className="ed-hero"><div className="ed-wrap ed-hero-grid"><div>
+        <span className="ed-kicker">Occupational health, rebuilt around work</span>
+        <h1>Healthier people.<br/>Stronger workplaces.</h1>
+        <p className="ed-lead">WorkWell by OHI makes occupational health easier to understand, buy, book and manage, from one employee referral to nationwide mobile health surveillance.</p>
+        <div className="ed-hero-actions"><a className="ed-btn primary" href="/services">Explore services</a><a className="ed-btn dark" href="/contact">Tell us what you need</a></div>
+        <div className="ed-ticks"><span>✓ UK-wide mobile delivery</span><span>✓ Employer + employee journeys</span><span>✓ Privacy-first clinical workflows</span></div>
+      </div><div className="ed-visual"><div className="ed-hero-photo"><img alt="OHI mobile health screening unit" src={fleet[0][0]}/><div className="ed-photo-fallback">OHI MOBILE HEALTH</div><div className="ed-hero-copy"><span className="ed-badge">OHI mobile delivery</span><h3>Occupational health that comes to your workforce</h3><p>Real-world delivery backed by a modern digital journey.</p></div></div><div className="ed-metrics"><div className="ed-metric"><strong>6</strong><small>mobile units</small></div><div className="ed-metric"><strong>UK</strong><small>wide delivery</small></div><div className="ed-metric"><strong>1</strong><small>connected journey</small></div></div></div></div></section>
 
-      <section className="pd-section" id="services"><div className="pd-sectionHead"><div><div className="pd-eyebrow">Services</div><h2>One occupational-health partner.</h2></div><p>Each service is built as a proper digital journey, with the information, employer action and delivery route made clear before purchase or referral.</p></div><div className="pd-cards">{services.map(([icon,title,copy])=><article className="pd-card" key={title}><div><div className="pd-icon">{icon}</div><h3>{title}</h3><p>{copy}</p></div><a className="pd-link" href="/services">Explore →</a></article>)}</div></section>
+      <section className="ed-section" id="real-ohi-fleet"><div className="ed-wrap">
+        <span className="ed-kicker">The real OHI mobile fleet</span><h2>Six mobile units. Flexible delivery across UK workplaces.</h2>
+        <p className="ed-lead">OHI states that its fleet comprises two large two-person units and four smaller one-person units. All six units have sound-proof hearing booths, while advisors and technicians also carry portable health-screening equipment.</p>
+        <div className="ed-fleet-grid">{fleet.map(([src,label])=><figure className="ed-photo-card" key={label}><img src={src} alt={label}/><figcaption>{label}</figcaption></figure>)}</div>
+        <div className="ed-facts"><div><b>6</b><span>mobile units</span></div><div><b>2</b><span>large two-person units</span></div><div><b>4</b><span>smaller one-person units</span></div><div><b>13A</b><span>domestic power supply</span></div></div>
+      </div></section>
 
-      <section className="pd-section white" id="direct"><div className="pd-sectionHead"><div><div className="pd-eyebrow">WorkWell Direct</div><h2>Buy occupational health online.</h2></div><p>Every commerce service has a full description journey before purchase, covering suitability, inclusions, delivery and turnaround.</p></div><div className="pd-catalog">{products.map(([name,price,copy])=><article className="pd-product" key={name}><span className="pd-tag">Occupational health</span><h3>{name}</h3><div className="pd-price">{price}<small> demo pricing</small></div><p>{copy}</p><a className="pd-btn primary" href="/services">View service</a></article>)}</div></section>
+      <section className="ed-section ed-services"><div className="ed-wrap"><span className="ed-kicker">Core services</span><h2>Occupational health without the maze.</h2><div className="ed-grid3">{services.map(([icon,title,copy,price])=><article className="ed-card ed-visual-card" key={title}><div className="ed-art">{icon}</div><div className="ed-card-body"><span className="ed-badge">Service</span><h3>{title}</h3><p>{copy}</p><div className="ed-price">{price}</div><div className="ed-muted">Representative demo price</div><a className="ed-btn dark" href="/services">View service</a></div></article>)}</div></div></section>
 
-      <section className="pd-section" id="mobile"><div className="pd-mobileGrid"><div className="pd-feature"><div className="pd-eyebrow">Mobile delivery</div><h2>Bring WorkWell to your workforce.</h2><p>Configure workplace delivery by location, headcount and screening programme.</p><div className="pd-fleet-callout"><div className="pd-eyebrow">Real OHI fleet</div><b>Using the existing mobile screening units</b><span>The production rebrand keeps the actual OHI vehicles as the visual source of truth.</span></div></div><div className="pd-planner"><div className="pd-eyebrow">Visit planner</div><h3>Plan a mobile visit</h3><label>Workplace postcode<input defaultValue="M1 1AE"/></label><label>Employees<input type="number" defaultValue="84"/></label><label>Programme<select defaultValue="Mixed health surveillance"><option>Mixed health surveillance</option><option>Audiometry + spirometry</option><option>HAVS + skin surveillance</option><option>Safety-critical medicals</option></select></label><label>Preferred date<input type="date"/></label><button className="pd-btn primary">Calculate requirement</button></div></div></section>
+      <section className="ed-section ed-band"><div className="ed-wrap ed-grid2"><div><span className="ed-kicker">Employer systems</span><h2>One front door for referrals, surveillance and reporting.</h2><p>Use the demo portal to see how the website connects into employer operations.</p><a className="ed-btn primary" href="/portal">Open portal login</a></div><div className="ed-grid2"><div className="ed-card"><h3>Referrals</h3><p>Structured management referrals and clear status.</p></div><div className="ed-card"><h3>Surveillance</h3><p>Programme activity, attendance and recalls.</p></div><div className="ed-card"><h3>Mobile units</h3><p>Site requirements and on-site programme requests.</p></div><div className="ed-card"><h3>Documents</h3><p>Employer-facing reports and programme records.</p></div></div></div></section>
+    </div>
 
-      <section className="pd-section white" id="real-fleet"><div className="pd-sectionHead"><div><div className="pd-eyebrow">The real mobile fleet</div><h2>Real OHI units, used properly in WorkWell.</h2></div><p>The original OHI vehicle photography remains the visual source of truth for the rebrand.</p></div><div className="pd-fleetGallery"><figure><img src="https://www.ohihealthessentials.co.uk/images/Gallery/16.jpg" alt="OHI smaller mobile health screening van"/><figcaption>Compact one-person screening unit</figcaption></figure><figure><img src="https://www.ohihealthessentials.co.uk/images/Gallery/17.jpg" alt="OHI larger mobile screening truck"/><figcaption>Large mobile screening unit</figcaption></figure><figure><img src="https://www.ohihealthessentials.co.uk/images/Gallery/18.jpg" alt="OHI mobile screening truck side view"/><figcaption>Flexible on-site delivery</figcaption></figure></div><div className="pd-fleetStats"><div><b>6</b><span>mobile units</span></div><div><b>2</b><span>large two-person units</span></div><div><b>4</b><span>smaller one-person units</span></div><div><b>13A</b><span>power requirement</span></div></div></section>
-
-      <section className="pd-section" id="portalpreview"><div className="pd-sectionHead"><div><div className="pd-eyebrow">Employer portal</div><h2>Everything after the sale.</h2></div><p>Orders, employees, referrals, surveillance programmes, appointments, mobile visits, documents and billing in one workspace.</p></div><div className="pd-portalDemo"><div className="pd-portalFrame"><aside><div className="pd-sideitem active">Overview</div><div className="pd-sideitem">Employees</div><div className="pd-sideitem">Referrals</div><div className="pd-sideitem">Surveillance</div><div className="pd-sideitem">Appointments</div><div className="pd-sideitem">Documents</div></aside><div className="pd-dash"><div className="pd-stats"><div><b>18</b><span>Open referrals</span></div><div><b>34</b><span>Surveillance due</span></div><div><b>7</b><span>Reports ready</span></div><div><b>82%</b><span>Programme completion</span></div></div><div className="pd-panel"><b>North Site surveillance</b><p>86 completed · 15 booked · 4 outstanding</p></div><a className="pd-btn primary" href="/portal">Open employer portal</a></div></div></div></section>
-
-      <footer className="pd-footer"><div className="pd-foot"><div><div className="pd-logo footer"><span className="pd-mark">W</span><span><b>WorkWell by OHI</b><small>Occupational health without the friction.</small></span></div><p>Employer-led occupational health, mobile surveillance, management referrals and practical workplace health services.</p></div><div><h4>Services</h4><a href="/services">All services</a><a href="#mobile">Mobile units</a><a href="/services">Management referrals</a></div><div><h4>Platform</h4><a href="/portal">Employer portal</a><a href="/clinical">Clinical workspace</a><a href="#direct">WorkWell Direct</a></div><div><h4>Contact</h4><span>01253 366156</span><span>Blackpool, UK</span></div></div></footer>
-    </main>
-  );
+    <footer className="ed-footer" id="about"><div className="ed-wrap"><div className="ed-footergrid"><div><div className="ed-brand"><span className="ed-mark">W</span><span><b>WorkWell by OHI</b><small>Occupational health without the friction.</small></span></div><p>Employer-led occupational health, mobile surveillance, management referrals and practical workplace health services.</p></div><div><b>Services</b><a href="/services">All services</a><a href="#real-ohi-fleet">Mobile units</a><a href="/services">Management referrals</a><a href="/services">Buy online</a></div><div><b>Company</b><a href="#about">About</a><a href="/clinical">Clinical governance</a><a href="#about">Accreditations</a><a href="#about">Standards & security</a></div><div><b>Support</b><a href="/contact">Contact</a><a href="#resources">FAQ</a><a href="#about">Privacy</a><a href="#about">Accessibility</a><a href="#about">Terms</a></div></div><div className="ed-legal">End-demo release concept for OHI Health Essentials Ltd. Demo pricing and sample records are illustrative only.</div></div></footer>
+  </main>
 }
