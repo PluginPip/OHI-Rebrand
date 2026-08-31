@@ -1,7 +1,9 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import './live.css';
+import './clinical.css';
 import './theme.css';
+import './signed-demo.css';
 import { getSiteTheme } from './theme-config';
 
 export const metadata: Metadata = {
