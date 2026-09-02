@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import './portal.css';
+import {ThemeSwitcher} from './components/theme-switcher';
 
 export const metadata: Metadata = {
   title: 'WorkWell by OHI — Demo',
@@ -8,5 +9,5 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en"><body>{children}</body></html>;
+  return <html lang="en" data-theme="workwell"><body>{children}<ThemeSwitcher/></body></html>;
 }
