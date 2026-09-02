@@ -4,14 +4,13 @@ import crypto from 'node:crypto';
 
 export type PaymentStatus='pending'|'paid'|'failed'|'invoice-draft'|'invoice-authorised'|'invoice-paid'|'cancelled';
 export type WorkflowStatus='pending-finance'|'ready'|'in-progress'|'complete';
-export type CommerceOrder={
- id:string;accessToken:string;createdAt:string;updatedAt:string;serviceSlug:string;service:string;totalPence:number;currency:'GBP';organisation:string;email:string;poNumber:string|null;paymentMethod:'card'|'invoice';paymentStatus:PaymentStatus;workflow:{type:'booking'|'referral'|'surveillance'|'order';status:WorkflowStatus;workItemId:string|null};stripeCheckoutSessionId?:string;stripePaymentIntentId?:string;xeroInvoiceId?:string;xeroInvoiceNumber?:string;
-};
+export type CommerceOrder={id:string;accessToken:string;createdAt:string;updatedAt:string;serviceSlug:string;service:string;totalPence:number;currency:'GBP';organisation:string;email:string;poNumber:string|null;paymentMethod:'card'|'invoice';paymentStatus:PaymentStatus;workflow:{type:'booking'|'referral'|'surveillance'|'order';status:WorkflowStatus;workItemId:string|null};stripeCheckoutSessionId?:string;stripePaymentIntentId?:string;xeroInvoiceId?:string;xeroInvoiceNumber?:string};
 type Store={orders:CommerceOrder[];integrations:{xeroRefreshToken?:string}};
-const file=process.env.OHI_COMMERCE_STORE_PATH||path.join(process.cwd(),'data','commerce-store.json');
+const defaultFile=path.join(process.cwd(),'data','commerce-store.json');
+const file=process.env.OHI_COMMERCE_STORE_PATH||defaultFile;
 let queue=Promise.resolve();
-async function readStore():Promise<Store>{try{return JSON.parse(await fs.readFile(file,'utf8')) as Store}catch{return {orders:[],integrations:{}}}}
-async function writeStore(store:Store){await fs.mkdir(path.dirname(file),{recursive:true});const tmp=`${file}.${process.pid}.tmp`;await fs.writeFile(tmp,JSON.stringify(store,null,2),'utf8');await fs.rename(tmp,file)}
+async function readStore():Promise<Store>{try{return JSON.parse(await fs.readFile(/* turbopackIgnore: true */ file,'utf8')) as Store}catch{return {orders:[],integrations:{}}}}
+async function writeStore(store:Store){await fs.mkdir(/* turbopackIgnore: true */ path.dirname(file),{recursive:true});const tmp=`${file}.${process.pid}.tmp`;await fs.writeFile(/* turbopackIgnore: true */ tmp,JSON.stringify(store,null,2),'utf8');await fs.rename(/* turbopackIgnore: true */ tmp,file)}
 function locked<T>(fn:()=>Promise<T>){const next=queue.then(fn,fn);queue=next.then(()=>undefined,()=>undefined);return next}
 export function newOrderId(){return `OHI-${Date.now().toString(36).toUpperCase()}-${crypto.randomBytes(2).toString('hex').toUpperCase()}`}
 export function newAccessToken(){return crypto.randomBytes(24).toString('base64url')}
