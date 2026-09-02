@@ -1,6 +1,6 @@
 import Link from 'next/link';
+import {VERSION} from './components/site';
 
-const VERSION = 'v1.2.0-demo';
 const services = [
   ['🩺','Health surveillance','Risk-led health surveillance programmes for workplace exposure risks.','£55','/health-surveillance'],
   ['👩‍⚕️','Management referral','Occupational-health advice for absence, capability and workplace adjustments.','£195','/management-referral'],
