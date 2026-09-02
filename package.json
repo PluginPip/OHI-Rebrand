@@ -1,6 +1,6 @@
 {
   "name": "ohi-workwell-nextjs",
-  "version": "1.0.0",
+  "version": "1.4.0-rc1",
   "private": true,
   "scripts": {
     "dev": "next dev",
