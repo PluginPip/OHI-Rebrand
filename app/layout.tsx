@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import './portal.css';
+import './theme-colours.css';
 import {ThemeSwitcher} from './components/theme-switcher';
 
 export const metadata: Metadata = {
